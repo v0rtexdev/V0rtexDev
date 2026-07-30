@@ -1,0 +1,341 @@
+<!DOCTYPE html><html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V0rtexDev — Script & UI Designer Roblox</title>
+  <meta name="description" content="V0rtexDev — scripteur et UI designer sur Roblox. Systèmes de gameplay, data, UI/UX, sécurité côté serveur.">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a class="brand" href="#top" aria-label="Accueil">
+      <span class="ico ico-script">λ</span><span id="brandName">V0rtexDev</span>
+    </a>
+    <nav class="top-nav" aria-label="Navigation principale">
+      <a href="#systems">Systèmes</a>
+      <a href="#ui">UI / GUI</a>
+      <a href="#commissions">Commissions</a>
+    </nav>
+    <div class="socials" id="socials"><span class="social-tag">Discord · v0rtexdev</span><a href="#" target="_blank" rel="noopener">Roblox</a><a href="mailto:contact@v0rtexdev.dev">Email</a></div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-intro reveal in">
+          <div class="path" id="heroPath"><span class="ico ico-script">λ</span>local<i> </i><b>V0rtexDev</b><i> = </i>require<i>(</i>Scripter<i>)</i></div>
+          <h1 id="heroTitle">Des systèmes<br><em>qui tiennent.</em></h1>
+          <p class="role" id="heroRole">Script Developer &amp; UI Designer — Roblox · Server/Client · DataStore · UX</p>
+          <p class="bio" id="heroBio">Scripteur Roblox spécialisé en systèmes de gameplay (data, leaderboards, mécaniques serveur) et en UI/UX propre et réactive. Code lisible, architecture solide, interfaces pensées pour le joueur.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#commissions" id="ctaPrimary">Demander un devis</a>
+            <a class="btn btn-ghost" href="#systems" id="ctaSecondary">Voir les systèmes</a>
+          </div>
+        </div>
+
+        <div class="editor" aria-hidden="true">
+          <div class="ed-bar">
+            <div class="ed-dots"><span></span><span></span><span></span></div>
+            <span class="ico ico-script">λ</span>
+            <span class="ed-file">DataService.lua</span>
+            <span class="ed-status"><span class="dot"></span>SERVER</span>
+          </div>
+          <div class="ed-body">
+            <div class="ln"><span class="ln-num">1</span><span class="ln-code"><span class="tok-kw">local</span> <span class="tok-type">DataStoreService</span> <span class="tok-plain">=</span> <span class="tok-fn">game</span><span class="tok-plain">:</span><span class="tok-fn">GetService</span><span class="tok-plain">(</span><span class="tok-str">"DataStoreService"</span><span class="tok-plain">)</span></span></div>
+            <div class="ln"><span class="ln-num">2</span><span class="ln-code"><span class="tok-kw">local</span> <span class="tok-type">Store</span> <span class="tok-plain">=</span> <span class="tok-type">DataStoreService</span><span class="tok-plain">:</span><span class="tok-fn">GetDataStore</span><span class="tok-plain">(</span><span class="tok-str">"PlayerData_v3"</span><span class="tok-plain">)</span></span></div>
+            <div class="ln"><span class="ln-num">3</span><span class="ln-code"></span></div>
+            <div class="ln"><span class="ln-num">4</span><span class="ln-code"><span class="tok-com">-- Auto-save avec retries et reconcile</span></span></div>
+            <div class="ln hl"><span class="ln-num">5</span><span class="ln-code"><span class="tok-kw">function</span> <span class="tok-fn">DataService.Save</span><span class="tok-plain">(</span><span class="tok-prop">player</span><span class="tok-plain">)</span></span></div>
+            <div class="ln"><span class="ln-num">6</span><span class="ln-code">    <span class="tok-kw">local</span> <span class="tok-prop">ok</span><span class="tok-plain">, </span><span class="tok-prop">err</span> <span class="tok-plain">=</span> <span class="tok-fn">pcall</span><span class="tok-plain">(</span><span class="tok-fn">Store.SetAsync</span><span class="tok-plain">, </span><span class="tok-type">Store</span><span class="tok-plain">, </span><span class="tok-prop">key</span><span class="tok-plain">, </span><span class="tok-prop">data</span><span class="tok-plain">)</span></span></div>
+            <div class="ln"><span class="ln-num">7</span><span class="ln-code">    <span class="tok-kw">if not</span> <span class="tok-prop">ok</span> <span class="tok-kw">then</span></span></div>
+            <div class="ln"><span class="ln-num">8</span><span class="ln-code">        <span class="tok-fn">warn</span><span class="tok-plain">(</span><span class="tok-str">"[DataService] retry: "</span> <span class="tok-plain">.. </span><span class="tok-prop">err</span><span class="tok-plain">)</span></span></div>
+            <div class="ln"><span class="ln-num">9</span><span class="ln-code">    <span class="tok-kw">end</span></span></div>
+            <div class="ln"><span class="ln-num">10</span><span class="ln-code"><span class="tok-kw">end</span></span></div>
+          </div>
+          <div class="ed-foot">
+            <span>modules <b>12</b></span>
+            <span>lignes <b>1.9k+</b></span>
+            <span>langage <b>Luau</b></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROPERTIES STRIP -->
+      <div class="props reveal in" id="stats">
+        <div class="props-head">
+          <span class="ico ico-script">λ</span><span id="propsTitle">Properties — V0rtexDev</span>
+        </div>
+        <div class="props-grid" id="propsGrid">
+    <div class="prop">
+      <div class="prop-name">Commissions</div>
+      <div class="prop-value">—</div>
+      <div class="prop-type">number</div>
+    </div>
+    <div class="prop">
+      <div class="prop-name">Systèmes livrés</div>
+      <div class="prop-value">—</div>
+      <div class="prop-type">number</div>
+    </div>
+    <div class="prop">
+      <div class="prop-name">Expérience</div>
+      <div class="prop-value">—</div>
+      <div class="prop-type">number</div>
+    </div>
+    <div class="prop">
+      <div class="prop-name">Followers</div>
+      <div class="prop-value">—</div>
+      <div class="prop-type">number</div>
+    </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYSTEMS -->
+  <section class="section" id="systems">
+    <div class="container">
+      <div class="sec-head reveal in">
+        <div>
+          <div class="path"><span class="ico ico-script">λ</span>game<i>.</i><b>ServerScriptService</b></div>
+          <h2 class="sec-title">Systèmes</h2>
+        </div>
+        <p class="sec-note">Gameplay, data et sécurité —<br>rôle et portée par projet.</p>
+      </div>
+      <div class="games-grid" id="gamesGrid">
+      <article class="game reveal in">
+        <div class="game-cover"><img src="" alt="DataService" loading="lazy"></div>
+        <div class="game-body">
+          <div class="game-title-row">
+            <span class="ico ico-script">λ</span>
+            <span class="game-name">DataService</span>
+          </div>
+          <p class="game-desc">Système de sauvegarde des données joueur via DataStoreService, avec reconcile, autosave et gestion des retries.</p>
+          <div class="game-meta">
+            <div class="game-prop"><span class="k">Rôle</span><span class="v">Script Developer</span></div>
+            <div class="game-prop"><span class="k">Type</span><span class="v"><em>Serveur / Data</em></span></div>
+          </div>
+        </div>
+      </article>
+      <article class="game reveal in">
+        <div class="game-cover"><img src="" alt="LeaderboardService" loading="lazy"></div>
+        <div class="game-body">
+          <div class="game-title-row">
+            <span class="ico ico-script">λ</span>
+            <span class="game-name">LeaderboardService</span>
+          </div>
+          <p class="game-desc">Leaderstats locaux et classement global (Wins, XP) via GetOrderedDataStore, synchronisé avec DataService.</p>
+          <div class="game-meta">
+            <div class="game-prop"><span class="k">Rôle</span><span class="v">Script Developer</span></div>
+            <div class="game-prop"><span class="k">Type</span><span class="v"><em>Serveur / Data</em></span></div>
+          </div>
+        </div>
+      </article>
+      <article class="game reveal in">
+        <div class="game-cover"><img src="" alt="ClientUI" loading="lazy"></div>
+        <div class="game-body">
+          <div class="game-title-row">
+            <span class="ico ico-ui">▤</span>
+            <span class="game-name">ClientUI</span>
+          </div>
+          <p class="game-desc">Script UI client principal : HUD, boutons d'action, modals inventaire / checkpoint / shop.</p>
+          <div class="game-meta">
+            <div class="game-prop"><span class="k">Rôle</span><span class="v">UI Designer</span></div>
+            <div class="game-prop"><span class="k">Type</span><span class="v"><em>Client / UI</em></span></div>
+          </div>
+        </div>
+      </article>
+      <article class="game reveal in">
+        <div class="game-cover"><img src="" alt="KillBall" loading="lazy"></div>
+        <div class="game-body">
+          <div class="game-title-row">
+            <span class="ico ico-script">λ</span>
+            <span class="game-name">KillBall</span>
+          </div>
+          <p class="game-desc">Système de piège : une balle tombe entre un point de spawn et de fin, et tue au contact.</p>
+          <div class="game-meta">
+            <div class="game-prop"><span class="k">Rôle</span><span class="v">Script Developer</span></div>
+            <div class="game-prop"><span class="k">Type</span><span class="v"><em>Gameplay</em></span></div>
+          </div>
+        </div>
+      </article>
+      <article class="game reveal in">
+        <div class="game-cover"><img src="" alt="Tsunami" loading="lazy"></div>
+        <div class="game-body">
+          <div class="game-title-row">
+            <span class="ico ico-script">λ</span>
+            <span class="game-name">Tsunami</span>
+          </div>
+          <p class="game-desc">Modèle cloné depuis ServerStorage, animé par tween entre deux points, tue au contact.</p>
+          <div class="game-meta">
+            <div class="game-prop"><span class="k">Rôle</span><span class="v">Script Developer</span></div>
+            <div class="game-prop"><span class="k">Type</span><span class="v"><em>Gameplay</em></span></div>
+          </div>
+        </div>
+      </article>
+      <article class="game reveal in">
+        <div class="game-cover"><img src="" alt="Systèmes divers" loading="lazy"></div>
+        <div class="game-body">
+          <div class="game-title-row">
+            <span class="ico ico-script">λ</span>
+            <span class="game-name">Porte &amp; Train</span>
+          </div>
+          <p class="game-desc">Système de porte animée avec ClickDetector, et boîte à levier d'allumage de train.</p>
+          <div class="game-meta">
+            <div class="game-prop"><span class="k">Rôle</span><span class="v">Script Developer</span></div>
+            <div class="game-prop"><span class="k">Type</span><span class="v"><em>Interactions</em></span></div>
+          </div>
+        </div>
+      </article></div>
+    </div>
+  </section>
+
+  <!-- UI GALLERY -->
+  <section class="section section-alt" id="ui">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div>
+          <div class="path"><span class="ico ico-ui">▤</span>game<i>.</i>StarterGui<i>.</i><b>Screens</b></div>
+          <h2 class="sec-title">UI / GUI</h2>
+        </div>
+        <p class="sec-note">Interfaces client —<br>clique pour agrandir.</p>
+      </div>
+      <div class="clips-grid" id="clipsGrid"><article class="clip reveal clip-wide" tabindex="0" role="button" aria-label="Ouvrir ClientUI">
+      <div class="clip-preview">
+        <img src="" alt="ClientUI">
+        <span class="clip-count">— img</span>
+      </div>
+      <div class="clip-body">
+        <span class="clip-title">ClientUI — HUD &amp; Modals</span>
+        <span class="clip-tags"><span class="clip-tag">UI</span><span class="clip-tag">Client</span></span>
+      </div></article><article class="clip reveal" tabindex="0" role="button" aria-label="Ouvrir Checkpoint Modal">
+      <div class="clip-preview">
+        <img src="" alt="Checkpoint Modal">
+        <span class="clip-count">— img</span>
+      </div>
+      <div class="clip-body">
+        <span class="clip-title">Checkpoint Modal</span>
+        <span class="clip-tags"><span class="clip-tag">UI</span><span class="clip-tag">UX</span></span>
+      </div></article><article class="clip reveal" tabindex="0" role="button" aria-label="Ouvrir Event Shop">
+      <div class="clip-preview">
+        <img src="" alt="Event Shop">
+        <span class="clip-count">— img</span>
+      </div>
+      <div class="clip-body">
+        <span class="clip-title">Event Shop</span>
+        <span class="clip-tags"><span class="clip-tag">UI</span><span class="clip-tag">Shop</span></span>
+      </div></article></div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Aperçu image">
+    <button class="lb-close" id="lbClose">Fermer · Esc</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Image précédente">‹</button>
+    <div class="lightbox-content">
+      <img id="lbImage" src="" alt="">
+    </div>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Image suivante">›</button>
+    <div class="lb-counter" id="lbCounter"></div>
+  </div>
+
+  <!-- COMMISSIONS -->
+  <section class="section" id="commissions">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div>
+          <div class="path"><span class="ico ico-server">≡</span>game<i>.</i><b>Players</b></div>
+          <h2 class="sec-title">Commissions</h2>
+        </div>
+        <p class="sec-note">Systèmes, data ou UI —<br>dis-moi ce qu'il te faut.</p>
+      </div>
+      <div class="comm-grid">
+        <div class="terms reveal">
+          <h3 id="termsHeading">Comment je fonctionne</h3>
+          <div id="termsParagraphs"><p>Je peux développer un système complet (data, gameplay, sécurité serveur) comme des scripts unitaires. Je peux aussi concevoir et intégrer une UI complète, du wireframe à l'implémentation.</p><p>Sur la commission, un devis est fixé avant de commencer. Un acompte de 50% du prix total peut être demandé au début. Si la commande est annulée en cours de route, je demande 40% du prix complet : je ne travaille pas pour rien.</p></div>
+          <ul id="termsList"><li>Devis fixé avant de commencer</li><li>Code commenté et modulaire</li><li>Livraison suivant les possibilités</li><li>Possibilité d'aider un peu après livraison</li><li>Contact direct sur Discord : v0rtexdev</li></ul>
+        </div>
+        <form class="devis reveal" id="devisForm">
+          <h3>Demander un devis</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nom / Pseudo</label>
+              <input type="text" id="name" name="name" autocomplete="name" required="">
+            </div>
+            <div class="form-group">
+              <label for="contact">Discord / Email</label>
+              <input type="text" id="contact" name="contact" required="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="project">Type de projet</label>
+            <select id="project" name="project">
+              <option value="system">Système / Gameplay</option>
+              <option value="data">Data / Sauvegarde</option>
+              <option value="ui">UI / Interface</option>
+              <option value="other">Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="details">Décris ton projet <span>— genre, features, délais, budget</span></label>
+            <textarea id="details" name="details" placeholder="Ex : système de sauvegarde joueur avec leaderboard, UI de shop, livraison souhaitée dans 3 semaines, budget ~..." required=""></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Envoyer la demande</button>
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="status" id="footStatus"><span class="dot"></span><span id="footStatusText">Dispo pour commissions — Discord v0rtexdev</span></span>
+    <span id="footCopyright">© 2026 V0rtexDev · Script &amp; UI Designer</span>
+    <nav aria-label="Liens">
+      <a href="#top">↑ Haut</a>
+      <a class="foot-roblox" href="#" target="_blank" rel="noopener">Roblox</a>
+      <a class="foot-email" href="mailto:contact@v0rtexdev.dev">Email</a>
+    </nav>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); } });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+
+    // Lightbox basique pour la galerie UI
+    const lightbox = document.getElementById('lightbox');
+    const lbImage = document.getElementById('lbImage');
+    const lbClose = document.getElementById('lbClose');
+    document.querySelectorAll('.clip').forEach(clip => {
+      clip.addEventListener('click', () => {
+        const img = clip.querySelector('img');
+        if (img && img.src) {
+          lbImage.src = img.src;
+          lbImage.alt = img.alt;
+          lightbox.classList.add('active');
+        }
+      });
+    });
+    lbClose.addEventListener('click', () => lightbox.classList.remove('active'));
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('active'); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('active'); });
+
+    // Formulaire devis (placeholder, à connecter à un backend)
+    const devisForm = document.getElementById('devisForm');
+    const formStatus = document.getElementById('formStatus');
+    devisForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formStatus.textContent = "Message prêt — connecte ce formulaire à un service d'envoi (ex: Formspree, EmailJS) pour l'activer.";
+      formStatus.classList.add('success');
+    });
+  </script>
+
+</body></html>
